@@ -54,33 +54,40 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
 
-vv32 dist;
-struct object
+int try_next_trees_starting_i(int i_start, v32 B, int score, int K)
 {
-    int x1;
-    int x2;
-    int y1;
-    int y2;
-};
+    int i = i_start;
+    while (i < B.size())
+    {
+        score = score + B[i];
+        if (score == K)
+            return i - i_start + 1;
+
+        if (score > K)
+            return -1;
+
+        i++;
+    }
+    return -1;
+}
 void solve()
 {
-    int K;
-    cin >> K;
-    v64 x, y;
-    for (int i = 0; i < K; i++)
+    int N, K;
+    cin >> N >> K;
+    v32 B(N);
+    for (int i = 0; i < N; i++)
     {
-        ll x1, y1, x2, y2;
-        cin >> x1 >> y1 >> x2 >> y2;
-        x.push_back(x1);
-        x.push_back(x2);
-        y.push_back(y1);
-        y.push_back(y2);
-    }
-    sort(all(x));
-    sort(all(y));
-    ll m_x = x[(x.size() - 1) / 2];
-    ll m_y = y[(y.size() - 1) / 2];
-    cout << m_x << " " << m_y << ln;
+        int bi;
+        cin >> B[i];
+        B[i] = bi;
+    };
+
+    // if all trees visited
+    v32 visited;
+    while (visited.size() < N)
+    {
+        }
+    cout << -1 << ln;
 }
 int main()
 {
