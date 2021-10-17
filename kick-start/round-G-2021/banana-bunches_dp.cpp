@@ -1,6 +1,6 @@
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
-#pragma GCC optimize("unroll-loops")
+// #pragma GCC optimize("Ofast")
+// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
+// #pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 #include <complex>
 #include <queue>
@@ -46,7 +46,7 @@ double eps = 1e-12;
 #define pb push_back
 #define fi first
 #define se second
-#define INF 2e18
+#define INF 2e9
 #define fast_cin()                    \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
@@ -54,40 +54,23 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
 
-int try_next_trees_starting_i(int i_start, v32 B, int score, int K)
-{
-    int i = i_start;
-    while (i < B.size())
-    {
-        score = score + B[i];
-        if (score == K)
-            return i - i_start + 1;
-
-        if (score > K)
-            return -1;
-
-        i++;
-    }
-    return -1;
-}
+// Using DP
 void solve()
 {
-    int N, K;
-    cin >> N >> K;
-    v32 B(N);
-    for (int i = 0; i < N; i++)
-    {
-        int bi;
-        cin >> B[i];
-        B[i] = bi;
-    };
 
-    // if all trees visited
-    v32 visited;
-    while (visited.size() < N)
-    {
-        }
-    cout << -1 << ln;
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+
+    vector<int> dp(k);
+    for (int &i : a)
+        cin >> i;
+    // intialize dp to INF
+    for (int i = 0; i <= k; i++)
+        dp[i] = INF;
+    // dp[0] = 0
+    dp[0] = 0;
+    int ans = INF;
 }
 int main()
 {
